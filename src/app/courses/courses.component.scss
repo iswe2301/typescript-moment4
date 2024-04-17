@@ -1,0 +1,109 @@
+@use '../../styles/abstracts';
+
+// Styling för app-courses, ärver mains storlek
+:host {
+    width: 100%;
+}
+
+// Styling för labels
+label {
+    @include abstracts.heading-style(1.6rem, 2.6rem, 600);
+    margin-bottom: 0.5rem;
+}
+
+/* Visar sök som flex column */
+#search-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+/* Typsnitt till placeholder i input */
+input {
+    height: 3.5rem;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #6e917f;
+    border-radius: 5px;
+}
+
+#course-info {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 0 8rem 0;
+}
+
+// Gör tabellen responsiv, tillåter scroll åt höger vid overflow.
+#table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Responsiv tabell */
+table {
+    width: 100%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+
+    th {
+        min-width: 127px;
+        padding: 0 1rem;
+        text-align: center;
+        background-color: abstracts.$light-grey-color;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+
+        i {
+            margin-left: 0.5rem;
+        }
+    }
+
+    /* Centrerar text i tabelldata */
+    td {
+        padding: 0.5rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+    }
+
+    tbody tr:hover {
+        background-color: abstracts.$table-hover; // Hover för tabellrader
+    }
+
+    /* Vänsterställer texten för alla td för kursnamn */
+    .coursename {
+        text-align: left !important;
+        padding: 1rem 4rem;
+    }
+
+    /* Vänxterställer text för tabellhuvudet namn */
+    #name {
+        padding: 0 4rem 0 4rem;
+        text-align: left;
+    }
+
+    // Ändrar till default cursor
+    #syllabus {
+        cursor: default !important;
+    }
+
+}
+
+// Styling för mindre enheter
+@media (max-width: 600px) {
+
+    #course-info {
+        padding: 2rem 0 5rem 0;
+    }
+
+    #name {
+        padding: 0 0 0.5rem 2rem !important;
+    }
+
+    /* Vänsterställer texten för alla td för kursnamn */
+    .coursename {
+        padding: 1rem 0 1rem 2rem !important;
+    }
+}
