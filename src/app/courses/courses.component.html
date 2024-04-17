@@ -1,1 +1,28 @@
-<p>courses works!</p>
+<div id="schedule">
+    <h2>Webbutveckling - Ramschema</h2>
+    <div id="search-box">
+        <label for="search">Sök:</label>
+        <input type="text" id="search" name="search" placeholder="Sök efter kurskod eller kursnamn">
+    </div>
+    <table id="course-table">
+        <thead>
+            <tr>
+                <th id="code">Kurskod</th>
+                <th id="name">Namn</th>
+                <th id="progression">Progression</th>
+                <th id="syllabus">Kursplan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loopar igenom kurslistan och skriver ut varje kurs i en egen tabellrad med kolumner för varje del -->
+            <tr *ngFor="let course of courselist">
+                <!-- Interpolation för att visa datan -->
+                <td>{{ course.code }}</td>
+                <td>{{ course.coursename }}</td>
+                <td>{{ course.progression }}</td>
+                <!-- Property bindning för att skapa en länk med datan -->
+                <td><a [href]="course.syllabus" target="_blank">Visa Kursplan</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
