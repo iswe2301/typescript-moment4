@@ -5,6 +5,11 @@
         <!-- Använder tvåvägsdatabindning för input i sökfältet, anropar metod för att filtrera kurser vid input -->
         <input type="text" id="search" name="search" placeholder="Sök efter kurskod eller kursnamn"
             [(ngModel)]="searchValue" (input)="searchCourse()">
+        <!-- Kontrollerar om det inte finns något matchande resultat -->
+        @if(filteredCourses.length === 0) {
+        <!-- Skriver ut att inga kursern kunde hittas -->
+        <p>Inga kurser hittades...</p>
+        }
     </div>
     <div id="table-container">
         <table id="course-table">
