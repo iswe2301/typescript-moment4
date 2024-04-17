@@ -2,7 +2,9 @@
     <h2>Webbutveckling - Ramschema</h2>
     <div id="search-box">
         <label for="search">Sök:</label>
-        <input type="text" id="search" name="search" placeholder="Sök efter kurskod eller kursnamn">
+        <!-- Använder tvåvägsdatabindning för input i sökfältet, anropar metod för att filtrera kurser vid input -->
+        <input type="text" id="search" name="search" placeholder="Sök efter kurskod eller kursnamn"
+            [(ngModel)]="searchValue" (input)="searchCourse()">
     </div>
     <table id="course-table">
         <thead>
@@ -15,7 +17,7 @@
         </thead>
         <tbody>
             <!-- Loopar igenom kurslistan och skriver ut varje kurs i en egen tabellrad med kolumner för varje del -->
-            <tr *ngFor="let course of courselist">
+            <tr *ngFor="let course of filteredCourses">
                 <!-- Interpolation för att visa datan -->
                 <td>{{ course.code }}</td>
                 <td>{{ course.coursename }}</td>
