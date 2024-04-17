@@ -16,11 +16,3 @@ footer {
     max-width: none;
   }
 }
-
-// Styling för enheter mindre än 800px bredd
-@media (max-width: 800px) {
-  footer {
-    padding-bottom: 7rem;
-    margin: 0;
-  }
-}
