@@ -9,9 +9,10 @@
     <table id="course-table">
         <thead>
             <tr>
-                <th id="code">Kurskod</th>
-                <th id="name">Namn</th>
-                <th id="progression">Progression</th>
+                <!-- Eventbinding som vid klick anropar metod för att sortera kurser -->
+                <th (click)="sortCourses('code')">Kurskod</th>
+                <th (click)="sortCourses('coursename')">Namn</th>
+                <th (click)="sortCourses('progression')">Progression</th>
                 <th id="syllabus">Kursplan</th>
             </tr>
         </thead>
